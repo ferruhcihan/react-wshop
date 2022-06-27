@@ -1,4 +1,3 @@
-import React from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -32,8 +31,10 @@ const Slick = () => {
     <div>
       <Slider {...settings}>
         {data.map((item: any) => (
-          <div key={item.title} className="h-[600px] w-full">
-            <h1 className="absolute text-7xl top-1/3 ml-40">{item.title}</h1>
+          <div key={item.title} className="h-[600px] w-full relative">
+            <h1 className="absolute transform -translate-x-1/2 -translate-y-1/2 text-7xl top-1/2 left-1/4">
+              {item.title}
+            </h1>
             <img
               className="h-[600px] w-full object-cover"
               src={item.imgUrl}
