@@ -1,14 +1,25 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import { Rectangle } from "../../assets/home/rectangle";
+import { RectangleEmpty } from "../../assets/home/rectangleEmpty";
+import { useState } from "react";
+import "./styles.css";
 
 const Slick = () => {
+  const [index, setIndex] = useState(0);
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    dotsClass: "slick-dots",
+    afterChange: () => setIndex(index === data.length - 1 ? 0 : index + 1),
+    customPaging: (i: any) => {
+      console.log("index:", index);
+      return i === index ? <Rectangle /> : <RectangleEmpty />;
+    },
   };
   const data = [
     {
